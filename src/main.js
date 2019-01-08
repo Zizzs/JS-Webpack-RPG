@@ -2,36 +2,24 @@ import './styles.css';
 import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Triangle } from './triangle';
+import { Sudoku } from './sudoku.js';
+
+
 
 $(document).ready(function() {
     $("#formInfo").submit(function(event) {
         event.preventDefault();
-        let sideOne = parseInt($("#sideOne").val());
-        let sideTwo = parseInt($("#sideTwo").val());
-        let sideThree = parseInt($("#sideThree").val());
-        
-        let triangle = new Triangle(sideOne, sideTwo, sideThree);
-        console.log(triangle);
-        
-        let isIsosceles = triangle.testIsosceles();
-        let isEquilateral = triangle.testEquilateral();
-        let isTriangle = triangle.testTriangle();
-
-        if (isTriangle === false) {
-            console.log("Not a Triangle");
-        }
-        else if (isEquilateral === true) {
-            console.log("Equilateral");
-        }
-
-        else if (isIsosceles === true) {
-            console.log("Isosceles");
-        }
-
-        else {
-            console.log("Scaline");
-        }
+        const arr = [];
+        for(let i = 0; i <= 80; i++)
+            arr.push($(`#${i}`).val());
+        const horizontal = Sudoku.checkHorizontal(arr);
+        const vertical = Sudoku.checkVertical(arr);
+        const box = Sudoku.checkBox(arr);
+        const diagonal = Sudoku.checkDiagonals(arr);
+        console.log("Horizontal Rule is " + horizontal);
+        console.log("Vertical Rule is " + vertical);
+        console.log("Box Rule is " + box);
+        console.log("Diagonal Rule is " + diagonal);
     });
 
 });

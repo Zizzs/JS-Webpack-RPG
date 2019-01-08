@@ -6,7 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: './src/main.js',
   output: {
-    filename: '[name].js',
+    filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist')
   },
   devtool: 'eval-source-map',
@@ -17,7 +17,7 @@ module.exports = {
     new UglifyJsPlugin({ sourceMap: true }),
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
-      title: 'Triangle',
+      title: 'Sudoku',
       template: './src/index.html',
       inject: 'body'
     })
