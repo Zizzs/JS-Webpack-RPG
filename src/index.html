@@ -4,100 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sudoku</title>
+    <title>RPG Game</title>
 </head>
 <body>
-    <form id='formInfo'>
-        <input id="0"></input>
-        <input id="1"></input>
-        <input id="2"></input>
-        <input id="3"></input>
-        <input id="4"></input>
-        <input id="5"></input>
-        <input id="6"></input>
-        <input id="7"></input>
-        <input id="8"></input>
-        <br>
-        <input id="9"></input>
-        <input id="10"></input>
-        <input id="11"></input>
-        <input id="12"></input>
-        <input id="13"></input>
-        <input id="14"></input>
-        <input id="15"></input>
-        <input id="16"></input>
-        <input id="17"></input>
-        <br>
-        <input id="18"></input>
-        <input id="19"></input>
-        <input id="20"></input>
-        <input id="21"></input>
-        <input id="22"></input>
-        <input id="23"></input>
-        <input id="24"></input>
-        <input id="25"></input>
-        <input id="26"></input>
-        <br>
-        <input id="27"></input>
-        <input id="28"></input>
-        <input id="29"></input>
-        <input id="30"></input>
-        <input id="31"></input>
-        <input id="32"></input>
-        <input id="33"></input>
-        <input id="34"></input>
-        <input id="35"></input>
-        <br>
-        <input id="36"></input>
-        <input id="37"></input>
-        <input id="38"></input>
-        <input id="39"></input>
-        <input id="40"></input>
-        <input id="41"></input>
-        <input id="42"></input>
-        <input id="43"></input>
-        <input id="44"></input>
-        <br>
-        <input id="45"></input>
-        <input id="46"></input>
-        <input id="47"></input>
-        <input id="48"></input>
-        <input id="49"></input>
-        <input id="50"></input>
-        <input id="51"></input>
-        <input id="52"></input>
-        <input id="53"></input>
-        <br>
-        <input id="54"></input>
-        <input id="55"></input>
-        <input id="56"></input>
-        <input id="57"></input>
-        <input id="58"></input>
-        <input id="59"></input>
-        <input id="60"></input>
-        <input id="61"></input>
-        <input id="62"></input>
-        <br>
-        <input id="63"></input>
-        <input id="64"></input>
-        <input id="65"></input>
-        <input id="66"></input>
-        <input id="67"></input>
-        <input id="68"></input>
-        <input id="69"></input>
-        <input id="70"></input>
-        <input id="71"></input>
-        <br>
-        <input id="72"></input>
-        <input id="73"></input>
-        <input id="74"></input>
-        <input id="75"></input>
-        <input id="76"></input>
-        <input id="77"></input>
-        <input id="78"></input>
-        <input id="79"></input>
-        <input id="80"></input>
+    <form id="characterForm">
+        <label for="charName">Enter a Name:</label>
+        <input id="charName" type="text" required></input><br>
+        <label for="class">Pick a Class:</label>
+        <select id="class">
+            <option value="warrior">Warrior</option>
+            <option value="ranger">Ranger</option>
+            <option value="mage">Mage</option>
+        </select><br>
         <button type='submit'>Submit</button>
+    </form>
+    <br>
+    <br>
+    <form id="combatForm">
+        <label for="monster">Pick a Monster To Fight!:</label><br>
+        <select id="monster">
+            <option value="rat">Rat</option>
+            <option value="kobold">Kobold</option>
+            <option value="goblin">Goblin</option>
+        </select><br>
+        <button type='submit'>Fight!</button>
+    </form><br>
+    <form id="mainStatForm">
+        <label for="mainStat">Bump your main stat: (strength, agility or intellect)</label><br>
+        <input id="mainStat" type="number" required></input><br>
+        <button type='submit'>Purchase</button>
+    </form>
+    <form id="staminaForm">
+        <label for="stamina">Bump your stamina</label><br>
+        <input id="stamina" type="number" required></input><br>
+        <button type='submit'>Purchase</button>
+    </form>
+    <br>
+    <br>
+    <form id="healForm">
+        <button type='submit'>Heal!</button>
     </form>
 </body>
 </html>
