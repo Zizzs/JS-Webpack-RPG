@@ -1,33 +1,34 @@
 export class Monster {
-    
+    constructor(name, health, attack, experience, gold) {
+        this.name = name;
+        this.health = health;
+        this.attack = attack;
+        this.experience = experience;
+        this.gold = gold;
+    }
 }
 
 export class Rat extends Monster {
     constructor() {
-        super();
-        this.name = "Rat";
-        this.health = 25;
-        this.attack = 3;
-        this.experience = 5;
+        super("Rat", 25, 3, 5, 15);
     }
 }
 
 export class Kobold extends Monster {
     constructor() {
-        super();
-        this.name = "Kobold";
-        this.health = 50;
-        this.attack = 5;
-        this.experience = 15;
+        super("Kobold", 50, 5, 15, 45);
     }
 }
 
 export class Goblin extends Monster {
     constructor() {
-        super();
-        this.name = "Goblin";
-        this.health = 100;
-        this.attack = 10;
-        this.experience = 35;
+        super("Goblin", 100, 10, 35, 70);
     }
 }
+
+export class Brigand extends Monster {
+    constructor () {
+        super("Brigand", 175, 20, 75, 125);
+    }
+}
+

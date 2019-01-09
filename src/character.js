@@ -48,26 +48,44 @@ export class Character {
             return attributes;
         }
         else if (character.experience < 500 && character.experience >= 250 && character.level === 5)  {
-            let points = 5;
+            let points = 10;
             let level = 6;
             let attributes = [level, points];
             return attributes;
         }
         else if (character.experience < 1000 && character.experience >= 500 && character.level === 6) {
-            let points = 5;
+            let points = 10;
             let level = 7;
             let attributes = [level, points];
             return attributes;
         }
         else if (character.experience < 2000 && character.experience >= 1000 && character.level === 7) {
-            let  points = 5;
+            let  points = 10;
             let level = 8;
             let attributes = [level, points];
             return attributes;
         }
-        else if (character.experience >= 2000 && character.level === 8) {
-            let  points = 5;
+        else if (character.experience < 3000 && character.experience >= 2000 && character.level === 8) {
+            let  points = 10;
             let level = 9;
+            let attributes = [level, points];
+            return attributes;
+        }
+        else if (character.experience < 4000 && character.experience >= 3000 && character.level === 9) {
+            let  points = 10;
+            let level = 10;
+            let attributes = [level, points];
+            return attributes;
+        }
+        else if (character.experience < 5000 && character.experience >= 4000 && character.level === 10) {
+            let  points = 15;
+            let level = 11;
+            let attributes = [level, points];
+            return attributes;
+        }
+        else if (character.experience >= 5000 && character.level === 11) {
+            let  points = 15;
+            let level = 12;
             let attributes = [level, points];
             return attributes;
         }
@@ -91,6 +109,7 @@ export class Warrior extends Character {
         this.attack = this.strength;
         this.experience = 0;
         this.points = 0;
+        this.gold = 0;
     }
 }
 
@@ -106,6 +125,7 @@ export class Mage extends Character {
         this.attack = this.intellect;
         this.experience = 0;
         this.points = 0;
+        this.gold = 0;
     }
 }
 
@@ -121,5 +141,6 @@ export class Ranger extends Character {
         this.attack = this.agility;
         this.experience = 0;
         this.points = 0;
+        this.gold = 0;
     }
 }

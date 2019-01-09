@@ -3,7 +3,7 @@ import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Warrior, Mage, Ranger, Character } from './character';
-import { Rat, Kobold, Goblin } from './monster';
+import { Rat, Kobold, Goblin, Brigand } from './monster';
 
 
 
@@ -31,13 +31,16 @@ $(document).ready(function() {
         event.preventDefault();
         let monsterName = $('#monster').val();
         if (monsterName === "rat") {
-            monster = new Rat(monsterName);
+            monster = new Rat();
         }
         if (monsterName === "kobold") {
-            monster = new Kobold(monsterName);
+            monster = new Kobold();
         }
         if (monsterName === "goblin") {
-            monster = new Goblin(monsterName);
+            monster = new Goblin();
+        }
+        if (monsterName === "brigand") {
+            monster = new Brigand();
         }
         console.log(monster);
         if (char.health > 0) {
@@ -46,29 +49,42 @@ $(document).ready(function() {
             let attributes = Character.levelUp(char);
             char.level = attributes[0];
             char.points += attributes[1];
+            char.gold += monster.gold;
         }
         if (char.health <= 0) {
-            console.log(`${char.name} has died.`);
+            alert(`${char.name} has died. Page will refresh when you click ok`);
+            location.reload();
         }
         console.log(`Health: ${char.health}`);
         console.log(`Experience: ${char.experience}`);
         console.log(`Level: ${char.level}`);
         console.log(`Points: ${char.points}`);
+        console.log(`Gold: ${char.gold}`)
     });
 
     $("#healForm").submit(function(event) {
         event.preventDefault();
         let healthDifference = char.maxHealth - char.health;
-        char.health = char.maxHealth;
-        console.log(`${char.name} has healed ${healthDifference}.`)
-        console.log(`${char.name} has ${char.health} Health.`)
-        console.log(`${char.name} has ${char.maxHealth} Max Health.`)
+        if (healthDifference !=0) {
+            if (char.gold >= 25) {
+                char.health = char.maxHealth;
+                char.gold -= 25;
+                console.log(`${char.name} has healed ${healthDifference}.`)
+                console.log(`${char.name} has ${char.health} Health.`)
+                console.log(`${char.name} has ${char.maxHealth} Max Health.`)
+            } else {
+                console.log("You don't have enough gold.");
+            }
+        }
+        else{
+            console.log("You already have max health");
+        }
     });
 
     $("#mainStatForm").submit(function(event) {
         event.preventDefault();
         let mainStat = parseInt($('#mainStat').val());
-        if (charClass === "warrior") {
+        if (charClass === "warrior" && char.points >= mainStat) {
             char.strength += mainStat;
             char.points -= mainStat;
             char.attack = char.strength;
@@ -76,7 +92,7 @@ $(document).ready(function() {
             console.log(`${char.name} has ${char.strength} total points of strength.`);
             console.log(`${char.name} has ${char.points} attribute points left to spend.`);
         }
-        if (charClass === "ranger") {
+        else if (charClass === "ranger" && char.points >= mainStat) {
             char.agility += mainStat;
             char.points -= mainStat;
             char.attack = char.agility;
@@ -84,7 +100,7 @@ $(document).ready(function() {
             console.log(`${char.name} has ${char.agility} total points of agility.`);
             console.log(`${char.name} has ${char.points} attribute points left to spend.`);
         }
-        if (charClass === "mage") {
+        else if (charClass === "mage" && char.points >= mainStat) {
             char.intellect += mainStat;
             char.points -= mainStat;
             char.attack = char.intellect;
@@ -92,17 +108,41 @@ $(document).ready(function() {
             console.log(`${char.name} has ${char.intellect} total points of intellect.`);
             console.log(`${char.name} has ${char.points} attribute points left to spend.`);
         }
+        else
+            console.log("You do not have enough points");
     });
 
     $("#staminaForm").submit(function(event) {
         event.preventDefault();
         let stamina = parseInt($('#stamina').val());
-        char.stamina += stamina;
-        char.points -= stamina;
-        char.maxHealth = char.stamina * 10;
-        char.health = char.maxHealth;
-        console.log(`${char.name} has gained ${stamina} points of stamina.`);
-        console.log(`${char.name} has ${char.stamina} total points of stamina.`);
-        console.log(`${char.name} has ${char.points} attribute points left to spend.`);
+        if (char.points >= stamina){
+            char.stamina += stamina;
+            char.points -= stamina;
+            char.maxHealth = char.stamina * 10;
+            char.health = char.maxHealth;
+            console.log(`${char.name} has gained ${stamina} points of stamina.`);
+            console.log(`${char.name} has ${char.stamina} total points of stamina.`);
+            console.log(`${char.name} has ${char.points} attribute points left to spend.`);
+        }
+        else
+            console.log("You do not have enough points");
+    });
+
+    $("#statsForm").submit(function(event){
+        event.preventDefault();
+        console.log(`Name: ${char.name}.`);
+        console.log(`Level: ${char.level}.`);
+        console.log(`Experience: ${char.experience}.`);
+        console.log(`Attribute Points: ${char.points}.`);
+        console.log(`Health: ${char.health}.`);
+        if (charClass === "warrior")
+            console.log(`Strength: ${char.strength}.`);
+        if (charClass === "ranger")
+            console.log(`Agility: ${char.agility}.`);
+        if (charClass === "mage")
+            console.log(`Intellect: ${char.intellect}.`);
+        console.log(`Stamina: ${char.stamina}.`);
+        console.log(`Attack Value: ${char.attack}.`);
+        console.log(`Gold: ${char.gold}.`);
     });
 });
