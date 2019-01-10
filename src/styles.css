@@ -3,41 +3,41 @@ a {
     width: 100px;
     text-decoration: none;
   }
-  nav, scroll-container {
+nav, scroll-container {
     display: block;
     margin: 0 auto;
     text-align: center;
-  }
-  nav {
+}
+nav {
     width: 600px;
     padding: 5px;
     border: 1px solid black;
-  }
-  scroll-container {
+}
+scroll-container {
     display: block;
     width: 1000px;
     height: 800px;
     overflow-y: scroll;
     scroll-behavior: smooth;
-  }
-  scroll-page {
+}
+scroll-page {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100%;
     font-size: 1em;
-  }
+}
 
-  #statWrapper {
-      display: grid;
-      grid-template-columns: repeat(9, 1fr);
-      grid-gap: 1em;
-      border: 1px solid black;
-      height: 100px;
-      width: 800px;
-  }
+#statWrapper {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-gap: 1em;
+    border: 1px solid black;
+    height: 100px;
+    width: 800px;
+}
 
-  #statWrapperWrapper {
+#statWrapperWrapper {
     display: grid;
     grid-template-columns: repeat(9, 1fr);
     grid-gap: 1em;
@@ -45,3 +45,20 @@ a {
     padding: 5px;
     width: 800px;
 }
+
+.button {
+    background-color: lightblue;
+}
+
+#shopGrid {
+    display: grid;
+    grid-template-columns: repeat (3, 1fr);
+    grid-gap: 1em;
+    border: 1px solid black;
+    padding: 5px;
+    margin-right: 150px;
+}
+
+
+
+

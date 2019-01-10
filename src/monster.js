@@ -10,25 +10,25 @@ export class Monster {
 
 export class Rat extends Monster {
     constructor() {
-        super("Rat", 25, 3, 5, 15);
+        super("Rat", 25, 3, 5, 10);
     }
 }
 
 export class Kobold extends Monster {
     constructor() {
-        super("Kobold", 50, 5, 15, 45);
+        super("Kobold", 50, 5, 15, 25);
     }
 }
 
 export class Goblin extends Monster {
     constructor() {
-        super("Goblin", 100, 10, 35, 70);
+        super("Goblin", 100, 10, 35, 45);
     }
 }
 
 export class Brigand extends Monster {
     constructor () {
-        super("Brigand", 175, 20, 75, 125);
+        super("Brigand", 175, 20, 75, 60);
     }
 }
 

@@ -9,6 +9,7 @@ export class Character {
             if (monster.health <= 0) {
                 $('#combatText').prepend(`${character.name} has won the battle! ${character.health} remaining health. \n`);
                 $('#combatText').prepend(`${character.name} is level ${character.level} \n`);
+                $('#currentHealth').text(`Current Health: ${character.health}`);
                 return character.health;
             }
             damage = Math.floor((Math.random() * monster.attack) + 1);
@@ -20,7 +21,22 @@ export class Character {
             }
         }
     }
-
+    static showStats(charClass, char) {
+        $('#statsOne').text(char.name);
+        $('#statsTwo').text(char.level);
+        $('#statsThree').text(char.experience);
+        $('#statsFour').text(char.health);
+        if (charClass === "warrior")
+            $('#statsFive').text(char.strength);
+        if (charClass === "ranger")
+            $('#statsFive').text(char.agility);
+        if (charClass === "mage")
+            $('#statsFive').text(char.intellect);
+        $('#statsSix').text(char.stamina);
+        $('#statsSeven').text(char.points);
+        $('#statsEight').text(char.attack);
+        $('#statsNine').text(char.gold);
+    }
     static levelUp(character) {
         if (character.experience < 30) {
             let attributes = [1, 0];
@@ -113,6 +129,9 @@ export class Warrior extends Character {
         this.experience = 0;
         this.points = 0;
         this.gold = 0;
+        this.inventory = {
+            "sword" : undefined
+        }
     }
 }
 
@@ -129,6 +148,9 @@ export class Mage extends Character {
         this.experience = 0;
         this.points = 0;
         this.gold = 0;
+        this.inventory = {
+            "wand" : undefined
+        }
     }
 }
 
@@ -145,5 +167,8 @@ export class Ranger extends Character {
         this.experience = 0;
         this.points = 0;
         this.gold = 0;
+        this.inventory = {
+            "bow" : undefined
+        }
     }
 }

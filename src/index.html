@@ -11,6 +11,7 @@
         <a href="#page-1">Create A Character</a>
         <a href="#page-2">Fight Monsters</a>
         <a href="#page-3">Heal and Stats</a>
+        <a href="#page-4">Ye Olde Shoppe</a>
     </nav>
     <scroll-container>
         <scroll-page id="page-1">
@@ -24,7 +25,7 @@
                         <option value="ranger">Ranger</option>
                         <option value="mage">Mage</option>
                     </select><br>
-                    <button type='submit'>Submit</button>
+                    <button class="button" type='submit'>Submit</button>
                 </form>
             </div>
         </scroll-page>
@@ -40,7 +41,7 @@
                         <option value="goblin">Goblin</option>
                         <option value="brigand">Brigand</option>
                     </select><br>
-                    <button type='submit'>Fight!</button>
+                    <button class="button" type='submit'>Fight!</button>
                 </form><br>
                 <textarea id="combatText" rows="25" cols="50">
                     Combat Log Goes Here
@@ -53,19 +54,15 @@
                 <form id="mainStatForm">
                     <label for="mainStat">Increase your main stat: (strength, agility or intellect)</label><br>
                     <input id="mainStat" type="number" required></input><br>
-                    <button type='submit'>Purchase</button>
+                    <button class="button" type='submit'>Purchase</button>
                 </form><br>
                 <form id="staminaForm">
                     <label for="stamina">Increase your stamina</label><br>
                     <input id="stamina" type="number" required></input><br>
-                    <button type='submit'>Purchase</button>
+                    <button class="button" type='submit'>Purchase</button>
                 </form><br>
                 <form id="healForm">
-                    <button type='submit'>Heal! (25 gold)</button>
-                </form><br>
-                <p id="currentHealth"></p>
-                <form id="statsForm">
-                    <button type='submit'>Show Stats!</button>
+                    <button class="button" type='submit'>Heal! (25 gold)</button>
                 </form><br>
                 <div id="statWrapperWrapper">
                     <p>Name</p>
@@ -88,6 +85,33 @@
                     <p id="statsSeven"></p>
                     <p id="statsEight"></p>
                     <p id="statsNine"></p>
+                </div>
+            </div>
+        </scroll-page>
+        <scroll-page id="page-4">
+            <div id="shopTag">
+                <p>Ye Olde Shoppe</p>
+            </div>
+            <br>
+            <br>
+            <div id="shopGrid">
+                <div id="woodSword">
+                    <p>Wooden Sword (Warrior)</p>
+                    <p>Attack: 5</p>
+                    <p>250 Gold</p>
+                    <button id="woodenSword" class="button">Submit</button>
+                </div>
+                <div>
+                    <p>Wooden Bow (Ranger)</p>
+                    <p>Attack: 5</p>
+                    <p>250 Gold</p>
+                    <button id="woodenBow" class="button">Submit</button>
+                </div>
+                <div>
+                    <p>Wooden Wand (Mage)</p>
+                    <p>Attack: 5</p>
+                    <p>250 Gold</p>
+                    <button id="woodenWand" class="button">Submit</button>
                 </div>
             </div>
         </scroll-page>
