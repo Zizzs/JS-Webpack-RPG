@@ -8,7 +8,10 @@ import { Rat, Kobold, Goblin, Brigand } from './monster';
 
 
 
+
 $(document).ready(function() {
+    var textarea = document.getElementById('combatText');
+    textarea.scrollTop = textarea.scrollHeight;
     let char;
     let monster;
     let charClass;
@@ -130,19 +133,19 @@ $(document).ready(function() {
 
     $("#statsForm").submit(function(event){
         event.preventDefault();
-        console.log(`Name: ${char.name}.`);
-        console.log(`Level: ${char.level}.`);
-        console.log(`Experience: ${char.experience}.`);
-        console.log(`Attribute Points: ${char.points}.`);
-        console.log(`Health: ${char.health}.`);
+        $('#statsOne').text(char.name);
+        $('#statsTwo').text(char.level);
+        $('#statsThree').text(char.experience);
+        $('#statsFour').text(char.health);
         if (charClass === "warrior")
-            console.log(`Strength: ${char.strength}.`);
+            $('#statsFive').text(char.strength);
         if (charClass === "ranger")
-            console.log(`Agility: ${char.agility}.`);
+            $('#statsFive').text(char.agility);
         if (charClass === "mage")
-            console.log(`Intellect: ${char.intellect}.`);
-        console.log(`Stamina: ${char.stamina}.`);
-        console.log(`Attack Value: ${char.attack}.`);
-        console.log(`Gold: ${char.gold}.`);
+            $('#statsFive').text(char.intellect);
+        $('#statsSix').text(char.stamina);
+        $('#statsSeven').text(char.points);
+        $('#statsEight').text(char.attack);
+        $('#statsNine').text(char.gold);
     });
 });

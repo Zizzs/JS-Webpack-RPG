@@ -1,18 +1,21 @@
+import $ from 'jquery';
+
 export class Character {
     static combat(character, monster) {
         while(character.health > 0 && monster.health > 0) {
             let damage = Math.floor((Math.random() * character.attack) + 1);
-            console.log(`${character.name} attacks ${monster.name} for ${damage} damage`);
+            $('#combatText').prepend(`${character.name} attacks ${monster.name} for ${damage} damage \n`);
             monster.health -= damage;
             if (monster.health <= 0) {
-                console.log(`${character.name} has won the battle! ${character.health} remaining health.`);
+                $('#combatText').prepend(`${character.name} has won the battle! ${character.health} remaining health. \n`);
+                $('#combatText').prepend(`${character.name} is level ${character.level} \n`);
                 return character.health;
             }
             damage = Math.floor((Math.random() * monster.attack) + 1);
-            console.log(`${monster.name} attacks ${character.name} for ${damage} damage`);
+            $('#combatText').prepend(`${monster.name} attacks ${character.name} for ${damage} damage. \n`);
             character.health -= damage;
             if (character.health <= 0) {
-                console.log(`${character.name} has lost the battle! ${character.health} remaining health.`);
+                $('#combatText').prepend(`${character.name} has lost the battle! ${character.health} remaining health. \n`);
                 return character.health;
             }
         }

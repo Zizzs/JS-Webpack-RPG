@@ -7,46 +7,90 @@
     <title>RPG Game</title>
 </head>
 <body>
-    <form id="characterForm">
-        <label for="charName">Enter a Name:</label>
-        <input id="charName" type="text" required></input><br>
-        <label for="class">Pick a Class:</label>
-        <select id="class">
-            <option value="warrior">Warrior</option>
-            <option value="ranger">Ranger</option>
-            <option value="mage">Mage</option>
-        </select><br>
-        <button type='submit'>Submit</button>
-    </form>
-    <br>
-    <br>
-    <form id="combatForm">
-        <label for="monster">Pick a Monster To Fight!:</label><br>
-        <select id="monster">
-            <option value="rat">Rat</option>
-            <option value="kobold">Kobold</option>
-            <option value="goblin">Goblin</option>
-            <option value="brigand">Brigand</option>
-        </select><br>
-        <button type='submit'>Fight!</button>
-    </form><br>
-    <form id="mainStatForm">
-        <label for="mainStat">Bump your main stat: (strength, agility or intellect)</label><br>
-        <input id="mainStat" type="number" required></input><br>
-        <button type='submit'>Purchase</button>
-    </form>
-    <form id="staminaForm">
-        <label for="stamina">Bump your stamina</label><br>
-        <input id="stamina" type="number" required></input><br>
-        <button type='submit'>Purchase</button>
-    </form>
-    <br>
-    <br>
-    <form id="healForm">
-        <button type='submit'>Heal! (25 gold)</button>
-    </form>
-    <form id="statsForm">
-        <button type='submit'>Show Stats!</button>
-    </form>
+    <nav>
+        <a href="#page-1">Create A Character</a>
+        <a href="#page-2">Fight Monsters</a>
+        <a href="#page-3">Heal and Stats</a>
+    </nav>
+    <scroll-container>
+        <scroll-page id="page-1">
+            <div>
+                <form id="characterForm">
+                    <label for="charName">Enter a Name:</label>
+                    <input id="charName" type="text" required></input><br>
+                    <label for="class">Pick a Class:</label>
+                    <select id="class">
+                        <option value="warrior">Warrior</option>
+                        <option value="ranger">Ranger</option>
+                        <option value="mage">Mage</option>
+                    </select><br>
+                    <button type='submit'>Submit</button>
+                </form>
+            </div>
+        </scroll-page>
+        <br>
+        <br>
+        <scroll-page id="page-2">
+            <div>
+                <form id="combatForm">
+                    <label for="monster">Pick a Monster To Fight!:</label><br>
+                    <select id="monster">
+                        <option value="rat">Rat</option>
+                        <option value="kobold">Kobold</option>
+                        <option value="goblin">Goblin</option>
+                        <option value="brigand">Brigand</option>
+                    </select><br>
+                    <button type='submit'>Fight!</button>
+                </form><br>
+                <textarea id="combatText" rows="25" cols="50">
+                    Combat Log Goes Here
+                </textarea> 
+             </div>
+        </scroll-page>
+        <br>
+        <scroll-page id="page-3">
+            <div>
+                <form id="mainStatForm">
+                    <label for="mainStat">Increase your main stat: (strength, agility or intellect)</label><br>
+                    <input id="mainStat" type="number" required></input><br>
+                    <button type='submit'>Purchase</button>
+                </form><br>
+                <form id="staminaForm">
+                    <label for="stamina">Increase your stamina</label><br>
+                    <input id="stamina" type="number" required></input><br>
+                    <button type='submit'>Purchase</button>
+                </form><br>
+                <form id="healForm">
+                    <button type='submit'>Heal! (25 gold)</button>
+                </form><br>
+                <p id="currentHealth"></p>
+                <form id="statsForm">
+                    <button type='submit'>Show Stats!</button>
+                </form><br>
+                <div id="statWrapperWrapper">
+                    <p>Name</p>
+                    <p>Level</p>
+                    <p>Experience</p>
+                    <p>Health</p>
+                    <p>Main Stat</p>
+                    <p>Stamina</p>
+                    <p>Attribute Points</p>
+                    <p>Attack Value</p>
+                    <p>Gold</p>
+                </div>
+                <div id="statWrapper">
+                    <p id="statsOne"></p>
+                    <p id="statsTwo"></p>
+                    <p id="statsThree"></p>
+                    <p id="statsFour"></p>
+                    <p id="statsFive"></p>
+                    <p id="statsSix"></p>
+                    <p id="statsSeven"></p>
+                    <p id="statsEight"></p>
+                    <p id="statsNine"></p>
+                </div>
+            </div>
+        </scroll-page>
+    </scroll-container>
 </body>
 </html>
